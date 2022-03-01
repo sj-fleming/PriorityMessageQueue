@@ -17,23 +17,23 @@ public class MessagePriorityQueue {
 	
 	public static void process(int i) {
 		Message m;
-		if(queue.get(0) != null) {
+		if(!queue.get(0).isEmpty()) {
 			m = queue.get(0).remove();
 			System.out.println("Message processed. Priority: " + m.getPriority() + "Time: " + i + "Arrival: " + m.getArrivalTime());
 		}
-		else if(queue.get(1) != null) {
+		else if(!queue.get(1).isEmpty()) {
 			m = queue.get(1).remove();
 			System.out.println("Message processed. Priority: " + m.getPriority() + "Time: " + i + "Arrival: " + m.getArrivalTime());
 		}
-		else if(queue.get(2) != null) {
+		else if(!queue.get(2).isEmpty()) {
 			m = queue.get(2).remove();
 			System.out.println("Message processed. Priority: " + m.getPriority() + "Time: " + i + "Arrival: " + m.getArrivalTime());
 		}
-		else if(queue.get(3) != null) {
+		else if(!queue.get(3).isEmpty()) {
 			m = queue.get(3).remove();
 			System.out.println("Message processed. Priority: " + m.getPriority() + "Time: " + i + "Arrival: " + m.getArrivalTime());
 		}
-		else if(queue.get(4) != null) {
+		else if(!queue.get(4).isEmpty()) {
 			m = queue.get(4).remove();
 			System.out.println("Message processed. Priority: " + m.getPriority() + "Time: " + i + "Arrival: " + m.getArrivalTime());
 		}				
@@ -42,14 +42,16 @@ public class MessagePriorityQueue {
 	public static void main(String[] args) {
 		queue = new ArrayList<Queue<Message>>(5);
 		
-		for(Queue q : queue) {
-			q = new LinkedList<>();
+		for(int i = 0; i < 5; i++) {
+			System.out.println("instantiated");
+			queue.add(new LinkedList<Message>());
 		}
+		System.out.println("test");
 		
 		//"pre-loading" the ArrayList
 		for (int i = 0; i < NUM_MESSAGES; i++) {
 			int priority = (int)(Math.random() * NUM_PRIORITIES);
-			queue.get(i).add(new Message(priority, i));
+			queue.get(priority).add(new Message(priority, i));
 		}
 		
 		//loading ArrayList with a test number of messages
@@ -63,5 +65,10 @@ public class MessagePriorityQueue {
 		}
 		
 		//another loop to finish processing what's left (done adding)
+		int time = NUM_TESTS;
+		while(!queue.get(0).isEmpty() || !queue.get(1).isEmpty() || !queue.get(2).isEmpty() || !queue.get(3).isEmpty() || !queue.get(4).isEmpty()){
+			process(time);
+			time++;
+		}
 	}
 }
