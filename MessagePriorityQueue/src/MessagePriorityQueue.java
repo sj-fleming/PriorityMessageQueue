@@ -53,11 +53,11 @@ public class MessagePriorityQueue {
 		}
 		
 		//loading ArrayList with a test number of messages
-		for(int i = NUM_MESSAGES; i < NUM_TESTS; i++) {
+		for(int i = 0; i < NUM_TESTS; i++) {
 			int priority = (int)(Math.random() * NUM_PRIORITIES);
-			queue.get(priority).add(new Message(priority, i));
-			//remove and process
-			if (i+1 % 4 == 0) {
+			queue.get(priority).add(new Message(priority, i + NUM_MESSAGES));
+			//remove and process every four seconds (iterations)
+			if ((i+1) % 4 == 0) {
 				process(i);
 			}
 		}
