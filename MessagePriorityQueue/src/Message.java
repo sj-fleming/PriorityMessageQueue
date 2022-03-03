@@ -1,4 +1,4 @@
-/*
+/**
  * @author Sarah Fleming
  * DE CS Assignment 7
  * Priority Message Queue
@@ -10,7 +10,7 @@ public class Message {
 	 * the priority (0-4) with which the message should be processed
 	 */
 	private int priority;
-	/*
+	/**
 	 * the "time" (iteration) when the message is instantiated
 	 */
 	private int arrival;
@@ -33,7 +33,7 @@ public class Message {
 		return priority;
 	}
 	
-	/*
+	/**
 	 * gets the arrival time of the message
 	 * @return the arrival time of the message
 	 */

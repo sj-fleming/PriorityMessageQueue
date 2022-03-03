@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
-/*
+/**
  * @author Sarah Fleming
  * DE CS Assignment 7
  * Priority Message Queue
@@ -10,27 +10,27 @@ import java.util.Queue;
  */
 public class MessagePriorityQueue {
 	
-	/*
+	/**
 	 * an ArrayList of Queues that has one queue at each index based on priority
 	 */
 	static ArrayList<Queue<Message>> queue;
-	/*
+	/**
 	 * number of messages that are pre-loaded into the priority queue
 	 */
 	static final int NUM_MESSAGES = 10;
-	/*
+	/**
 	 * number of priorities that the ArrayList can hold (size of ArrayList)
 	 */
 	static final int NUM_PRIORITIES = 5;
-	/*
+	/**
 	 * number of test messages with random priorities that are added to the priority queue
 	 */
 	static final int NUM_TESTS = 100;
-	/*
+	/**
 	 * the time from the computer when the program starts adding and processing messages
 	 */
 	static long startTime;
-	/*
+	/**
 	 * the time from the computer when all the messages have been processed
 	 */
 	static long endTime;
@@ -64,6 +64,9 @@ public class MessagePriorityQueue {
 		}				
 	}
 
+	/**
+	 * instantiates the priority queue, pre-loads a number of messages, then adds the test messages and processes on message every 4 iterations
+	 */
 	public static void main(String[] args) {
 		queue = new ArrayList<Queue<Message>>(5);
 		
