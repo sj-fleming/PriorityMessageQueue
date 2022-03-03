@@ -6,17 +6,39 @@ import java.util.Queue;
  * @author Sarah Fleming
  * DE CS Assignment 7
  * Priority Message Queue
- * Last edited: 2/28/22
+ * Last edited: 3/3/22
  */
 public class MessagePriorityQueue {
 	
+	/*
+	 * an ArrayList of Queues that has one queue at each index based on priority
+	 */
 	static ArrayList<Queue<Message>> queue;
+	/*
+	 * number of messages that are pre-loaded into the priority queue
+	 */
 	static final int NUM_MESSAGES = 10;
+	/*
+	 * number of priorities that the ArrayList can hold (size of ArrayList)
+	 */
 	static final int NUM_PRIORITIES = 5;
+	/*
+	 * number of test messages with random priorities that are added to the priority queue
+	 */
 	static final int NUM_TESTS = 100;
+	/*
+	 * the time from the computer when the program starts adding and processing messages
+	 */
 	static long startTime;
+	/*
+	 * the time from the computer when all the messages have been processed
+	 */
 	static long endTime;
 	
+	/**
+	 * processes a message by removing the message with the top priority and printing the priority, time processed, iteration processed, and arrival time
+	 * @param i the iteration when the method is called
+	 */
 	public static void process(int i) {
 		Message m;
 		long currentTime = System.currentTimeMillis();
